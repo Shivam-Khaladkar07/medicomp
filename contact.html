@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - MediComp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20" data-id="hero-section">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6" data-id="hero-title">
+        Contact Us
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-id="hero-description">
+        Get in touch with our team for support, partnerships, or general inquiries
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-20 bg-white" data-id="contact-form-section">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Form -->
+          <div data-id="contact-form">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
+            
+            <form id="contact-form" class="space-y-6" data-id="contact-form-element">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div data-id="form-name">
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Your full name"
+                  >
+                </div>
+                
+                <div data-id="form-email">
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="your.email@example.com"
+                  >
+                </div>
+              </div>
+              
+              <div data-id="form-phone">
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="+91 9876543210"
+                >
+              </div>
+              
+              <div data-id="form-subject">
+                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                <select 
+                  id="subject" 
+                  name="subject" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="support">Technical Support</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="press">Press & Media</option>
+                </select>
+              </div>
+              
+              <div data-id="form-message">
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="6" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                  placeholder="Tell us how we can help you..."
+                ></textarea>
+              </div>
+              
+              <button 
+                type="submit" 
+                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center gap-2"
+                data-id="form-submit"
+              >
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div data-id="contact-info">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+            
+            <div class="space-y-8">
+              <div class="flex items-start space-x-4" data-id="contact-address">
+                <div class="bg-blue-100 p-3 rounded-lg">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-2">Office Address</h3>
+                  <p class="text-gray-600">
+                    MediComp Technologies Pvt. Ltd.<br>
+                    123 Healthcare Plaza, Tech Park<br>
+                    Pune, Maharashtra 42701<br>
+                    India
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4" data-id="contact-phone">
+                <div class="bg-green-100 p-3 rounded-lg">
+                  <i data-lucide="phone" class="w-6 h-6 text-green-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-2">Phone Numbers</h3>
+                  <p class="text-gray-600">
+                    General: +91-1800-MEDICOMP<br>
+                    Support: +91-80-2345-6789<br>
+                    Partnerships: +91-80-2345-6790
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4" data-id="contact-email">
+                <div class="bg-purple-100 p-3 rounded-lg">
+                  <i data-lucide="mail" class="w-6 h-6 text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-2">Email Addresses</h3>
+                  <p class="text-gray-600">
+                    General: info@medicomp.com<br>
+                    Support: support@medicomp.com<br>
+                    Partnerships: partners@medicomp.com
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4" data-id="contact-hours">
+                <div class="bg-yellow-100 p-3 rounded-lg">
+                  <i data-lucide="clock" class="w-6 h-6 text-yellow-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-gray-900 mb-2">Business Hours</h3>
+                  <p class="text-gray-600">
+                    Monday - Friday: 9:00 AM - 6:00 PM IST<br>
+                    Saturday: 10:00 AM - 4:00 PM IST<br>
+                    Sunday: Closed
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="mt-8 pt-8 border-t" data-id="social-media">
+              <h3 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors" data-id="social-facebook">
+                  <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="bg-blue-400 text-white p-3 rounded-lg hover:bg-blue-500 transition-colors" data-id="social-twitter">
+                  <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition-colors" data-id="social-instagram">
+                  <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="bg-blue-700 text-white p-3 rounded-lg hover:bg-blue-800 transition-colors" data-id="social-linkedin">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50" data-id="faq-section">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="faq-title">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-id="faq-description">
+          Find quick answers to common questions about MediComp
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto space-y-6" data-id="faq-list">
+        <div class="bg-white rounded-lg shadow-md" data-id="faq-1">
+          <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" data-question="1">
+            <span class="font-medium text-gray-900">How accurate are the prices on MediComp?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <p class="text-gray-600">Our prices are updated in real-time from our partner pharmacies. However, prices may vary slightly due to promotions, stock levels, or regional differences. We recommend calling the pharmacy to confirm the final price before visiting.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md" data-id="faq-2">
+          <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" data-question="2">
+            <span class="font-medium text-gray-900">Is MediComp free to use?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <p class="text-gray-600">Yes, MediComp is completely free for consumers. We earn through partnerships with pharmacies and by providing value-added services to our pharmacy partners.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md" data-id="faq-3">
+          <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" data-question="3">
+            <span class="font-medium text-gray-900">How can I become a partner pharmacy?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <p class="text-gray-600">We welcome licensed pharmacies to join our network. Please contact us through our partnership inquiry form or email partners@medicomp.com with your pharmacy details and licensing information.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md" data-id="faq-4">
+          <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" data-question="4">
+            <span class="font-medium text-gray-900">Do you provide medical advice?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <p class="text-gray-600">No, MediComp is a price comparison platform and does not provide medical advice. Always consult with qualified healthcare professionals for medical guidance and follow their prescriptions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initContact } from './scripts/contact.js';
+    import { MediCompChatbot } from './scripts/chatbot.js';
+    import { CartService } from './scripts/cart.js';
+    
+    // Load all shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize functionality
+    initContact();
+    
+    // Initialize chatbot
+    new MediCompChatbot();
+    
+    // Initialize cart service
+    new CartService();
+    
+    // Initialize icons after components are loaded
+    lucide.createIcons();
+  </script>
+</body>
+</html>

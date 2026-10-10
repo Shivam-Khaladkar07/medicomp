@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - MediComp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20" data-id="hero-section">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6" data-id="hero-title">
+        About MediComp
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-id="hero-description">
+        Making healthcare affordable and accessible by providing transparent medicine price comparisons
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-20 bg-white" data-id="mission-section">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8" data-id="mission-title">
+          Our Mission
+        </h2>
+        <p class="text-lg text-gray-600 mb-12" data-id="mission-description">
+          We believe that everyone deserves access to affordable healthcare. MediComp was created to empower patients and healthcare providers with transparent pricing information, helping them make informed decisions about their medication purchases.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-id="values-grid">
+          <div class="text-center p-6" data-id="value-transparency">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="eye" class="w-8 h-8 text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Transparency</h3>
+            <p class="text-gray-600">Clear, honest pricing information from verified sources.</p>
+          </div>
+          
+          <div class="text-center p-6" data-id="value-accessibility">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="heart" class="w-8 h-8 text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Accessibility</h3>
+            <p class="text-gray-600">Making healthcare information accessible to everyone.</p>
+          </div>
+          
+          <div class="text-center p-6" data-id="value-trust">
+            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="shield-check" class="w-8 h-8 text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Trust</h3>
+            <p class="text-gray-600">Building trust through verified pharmacy partnerships.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="py-20 bg-gray-50" data-id="story-section">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12" data-id="story-title">
+          Our Story
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-id="story-content">
+          <div data-id="story-text">
+            <p class="text-lg text-gray-600 mb-6">
+              MediComp was founded in 2024 by a team of healthcare professionals and technology experts who experienced firsthand the frustration of unclear medication pricing. After spending hours calling different pharmacies to find the best prices for family members' prescriptions, they realized there had to be a better way.
+            </p>
+            <p class="text-lg text-gray-600 mb-6">
+              What started as a simple idea to help friends and family has grown into a comprehensive platform that serves thousands of users across the country. We've partnered with over 50 licensed pharmacies to provide real-time pricing information and help people save money on their essential medications.
+            </p>
+            <p class="text-lg text-gray-600">
+              Today, MediComp continues to evolve, adding new features and partnerships to better serve our community's healthcare needs.
+            </p>
+          </div>
+          
+          <div data-id="story-image">
+            <img 
+              src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop&crop=center" 
+              alt="Team working on healthcare solutions"
+              class="rounded-lg shadow-lg"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-white" data-id="team-section">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="team-title">
+          Meet Our Team
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-id="team-description">
+          Our diverse team combines healthcare expertise with cutting-edge technology to deliver the best experience for our users.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-id="team-grid">
+        <div class="text-center" data-id="team-member-1">
+          <img 
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=center" 
+            alt="Harsh Nawle"
+            class="w-32 h-32 rounded-full mx-auto mb-6"
+          >
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Harsh Nawle</h3>
+          <p class="text-blue-600 font-medium mb-2">Chief Medical Officer</p>
+          <p class="text-gray-600 text-sm">15+ years in pharmaceutical industry and healthcare policy.</p>
+        </div>
+        
+        <div class="text-center" data-id="team-member-2">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=center" 
+            alt="Abhishek Maske"
+            class="w-32 h-32 rounded-full mx-auto mb-6"
+          >
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Abhishek Maske</h3>
+          <p class="text-blue-600 font-medium mb-2">Chief Technology Officer</p>
+          <p class="text-gray-600 text-sm">Former tech lead at major healthcare platforms and startups.</p>
+        </div>
+        
+        <div class="text-center" data-id="team-member-3">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=center" 
+            alt="Shivam"
+            class="w-32 h-32 rounded-full mx-auto mb-6"
+          >
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Shivam</h3>
+          <p class="text-blue-600 font-medium mb-2">Head of Partnerships</p>
+          <p class="text-gray-600 text-sm">Expert in pharmacy operations and healthcare business development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white" data-id="stats-section">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" data-id="stats-title">
+          Our Impact
+        </h2>
+        <p class="text-xl" data-id="stats-description">
+          Here's how we're making a difference in healthcare accessibility
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-id="stats-grid">
+        <div class="text-center" data-id="stat-users">
+          <div class="text-4xl md:text-5xl font-bold mb-2">50K+</div>
+          <div class="text-lg opacity-90">Active Users</div>
+        </div>
+        
+        <div class="text-center" data-id="stat-savings">
+          <div class="text-4xl md:text-5xl font-bold mb-2">₹2M+</div>
+          <div class="text-lg opacity-90">Total Savings</div>
+        </div>
+        
+        <div class="text-center" data-id="stat-pharmacies">
+          <div class="text-4xl md:text-5xl font-bold mb-2">50+</div>
+          <div class="text-lg opacity-90">Partner Pharmacies</div>
+        </div>
+        
+        <div class="text-center" data-id="stat-searches">
+          <div class="text-4xl md:text-5xl font-bold mb-2">100K+</div>
+          <div class="text-lg opacity-90">Monthly Searches</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { MediCompChatbot } from './scripts/chatbot.js';
+    import { CartService } from './scripts/cart.js';
+    
+    // Load all shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize chatbot
+    new MediCompChatbot();
+    
+    // Initialize cart service
+    new CartService();
+    
+    // Initialize icons after components are loaded
+    lucide.createIcons();
+  </script>
+</body>
+</html>

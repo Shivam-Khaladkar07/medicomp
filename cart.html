@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - MediComp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
+            <p class="text-gray-600">Review your selected medicines and proceed to checkout</p>
+        </div>
+
+        <!-- Cart Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-semibold text-gray-900">Cart Items</h2>
+                    </div>
+                    
+                    <!-- Cart Items List -->
+                    <div id="cart-items" class="divide-y divide-gray-200">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    
+                    <!-- Empty Cart State -->
+                    <div id="empty-cart" class="hidden p-8 text-center">
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-gray-300 mx-auto mb-4"></i>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Your cart is empty</h3>
+                        <p class="text-gray-600 mb-4">Add some medicines to get started</p>
+                        <a href="main.html" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 sticky top-24">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-semibold text-gray-900">Order Summary</h2>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        <!-- Subtotal -->
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Subtotal</span>
+                            <span id="subtotal" class="font-medium">₹0.00</span>
+                        </div>
+                        
+                        <!-- Delivery Fee -->
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Delivery Fee</span>
+                            <span id="delivery-fee" class="font-medium">₹50.00</span>
+                        </div>
+                        
+                        <!-- Tax -->
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Tax (18% GST)</span>
+                            <span id="tax" class="font-medium">₹0.00</span>
+                        </div>
+                        
+                        <hr class="border-gray-200">
+                        
+                        <!-- Total -->
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total</span>
+                            <span id="total" class="text-blue-600">₹0.00</span>
+                        </div>
+                        
+                        <!-- Checkout Button -->
+                        <button id="checkout-btn" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <!-- Payment Section (Hidden by default) -->
+                        <div id="payment-section" class="hidden mt-6 pt-6 border-t border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Payment Information</h3>
+                            
+                            <!-- Simple Payment Form -->
+                            <form id="payment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Payment Method</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <label class="border rounded-lg p-3 flex items-center space-x-2 cursor-pointer">
+                                            <input type="radio" name="payment-method" value="upi" checked>
+                                            <span>UPI</span>
+                                        </label>
+                                        <label class="border rounded-lg p-3 flex items-center space-x-2 cursor-pointer">
+                                            <input type="radio" name="payment-method" value="card">
+                                            <span>Debit Card</span>
+                                        </label>
+                                        <label class="border rounded-lg p-3 flex items-center space-x-2 cursor-pointer">
+                                            <input type="radio" name="payment-method" value="qr">
+                                            <span>QR Code</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- UPI Fields -->
+                                <div id="method-upi" class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">UPI ID (VPA)</label>
+                                    <input type="text" id="upi-vpa" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="username@bank">
+                                    <label class="block text-sm font-medium text-gray-700">Email (for receipt)</label>
+                                    <input type="email" id="payer-email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="you@example.com">
+                                </div>
+
+                                <!-- Card Fields -->
+                                <div id="method-card" class="space-y-2 hidden">
+                                    <label class="block text-sm font-medium text-gray-700">Cardholder Name</label>
+                                    <input type="text" id="cardholder-name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John Doe">
+                                    <label class="block text-sm font-medium text-gray-700">Card Number</label>
+                                    <input type="text" id="card-number" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="1234 5678 9012 3456">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700">Expiry (MM/YY)</label>
+                                            <input type="text" id="card-expiry" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="08/27">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700">CVC</label>
+                                            <input type="text" id="card-cvc" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- QR Code Fields -->
+                                <div id="method-qr" class="space-y-2 hidden">
+                                    <p class="text-sm text-gray-700">Upload your QR code image or paste QR code here.</p>
+                                    <div class="w-48 h-48 bg-white flex items-center justify-center rounded-lg border border-dashed border-gray-300 relative">
+                                        <img id="qr-image" alt="Payment QR" class="w-44 h-44 object-contain hidden" src="">
+                                        <div id="qr-placeholder" class="text-center text-gray-400">
+                                            <i data-lucide="upload" class="w-8 h-8 mx-auto mb-2"></i>
+                                            <p class="text-sm">Upload QR Code</p>
+                                        </div>
+                                        <input type="file" id="qr-upload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                    </div>
+                                    <p class="text-xs text-gray-500">Amount: ₹<span id="qr-amount">0.00</span></p>
+                                </div>
+
+                                <div class="flex space-x-3">
+                                    <button type="button" id="cancel-payment" class="flex-1 bg-gray-500 text-white py-3 px-4 rounded-lg hover:bg-gray-600 transition-colors font-medium">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" id="pay-button" class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+                                        <span id="button-text">Pay ₹<span id="payment-total">0.00</span></span>
+                                        <div id="spinner" class="hidden">
+                                            <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Continue Shopping -->
+                        <a href="main.html" class="block text-center text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bill/Invoice Modal -->
+    <div id="bill-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-4 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 xl:w-2/5 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Order Bill</h3>
+                    <button id="close-bill-modal" class="text-gray-400 hover:text-gray-600">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Bill Content -->
+                <div id="bill-content" class="space-y-6">
+                    <!-- Bill will be populated here -->
+                </div>
+
+                <!-- Bill Actions -->
+                <div class="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200">
+                    <button id="print-bill" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i data-lucide="printer" class="w-4 h-4 inline mr-2"></i>
+                        Print Bill
+                    </button>
+                    <button id="download-bill" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i data-lucide="download" class="w-4 h-4 inline mr-2"></i>
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script type="module">
+        import { loadComponent } from './scripts/components/loader.js';
+        import { CartService } from './scripts/cart.js';
+        import { SimplePaymentService } from './scripts/simple-payment.js';
+
+        // Load all shared components
+        await loadComponent('#navbar-container');
+        await loadComponent('#footer-container');
+
+        // Initialize cart
+        const cartService = new CartService();
+        cartService.initCartPage();
+        // Expose globally for payment calculations
+        window.cartService = cartService;
+
+        // Initialize simple payment service
+        const simplePaymentService = new SimplePaymentService();
+        window.simplePaymentService = simplePaymentService;
+        simplePaymentService.setupEventListeners();
+
+        // Initialize icons after components are loaded
+        lucide.createIcons();
+    </script>
+</body>
+</html>

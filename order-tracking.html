@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - MediComp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="p-2 rounded-lg bg-gradient-to-br from-blue-600 via-purple-600 to-teal-500">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="10" y="3" width="4" height="18" rx="1.5" fill="currentColor"/>
+                            <rect x="3" y="10" width="18" height="4" rx="1.5" fill="currentColor"/>
+                            <rect x="16.5" y="5" width="3.5" height="3.5" rx="1" fill="white" opacity="0.9"/>
+                            <rect x="16.5" y="15.5" width="3.5" height="3.5" rx="1" fill="white" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent">MediComp</span>
+                </div>
+                
+                <!-- Back Button -->
+                <a href="dashboard.html" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    <span>Back to Orders</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Order Header -->
+        <div class="bg-white rounded-lg shadow-sm border p-6 mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900" id="order-number">Order #ORD-2024-001</h1>
+                    <p class="text-gray-600" id="order-date">Placed on January 15, 2024 at 10:30 AM</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-gray-900" id="order-total">₹227.00</div>
+                    <div class="text-sm text-gray-600" id="payment-status">Payment: Paid</div>
+                </div>
+            </div>
+            
+            <!-- Current Status -->
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-medium text-blue-900" id="current-status">Order Delivered</p>
+                        <p class="text-sm text-blue-700" id="status-description">Your order has been successfully delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tracking Timeline -->
+        <div class="bg-white rounded-lg shadow-sm border p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Order Tracking</h2>
+            <div class="space-y-6" id="tracking-timeline">
+                <!-- Timeline items will be populated here -->
+            </div>
+        </div>
+
+        <!-- Order Items -->
+        <div class="bg-white rounded-lg shadow-sm border p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Order Items</h2>
+            <div class="space-y-4" id="order-items">
+                <!-- Order items will be populated here -->
+            </div>
+        </div>
+
+        <!-- Delivery Information -->
+        <div class="bg-white rounded-lg shadow-sm border p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Delivery Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-gray-900 mb-2">Delivery Address</h3>
+                    <p class="text-gray-600" id="delivery-address">123 Main Street, Andheri West, Mumbai - 400058</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-900 mb-2">Estimated Delivery</h3>
+                    <p class="text-gray-600" id="estimated-delivery">January 17, 2024 by 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="p-2 rounded-lg bg-gradient-to-br from-blue-600 via-purple-600 to-teal-500">
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="10" y="3" width="4" height="18" rx="1.5" fill="currentColor"/>
+                                <rect x="3" y="10" width="18" height="4" rx="1.5" fill="currentColor"/>
+                                <rect x="16.5" y="5" width="3.5" height="3.5" rx="1" fill="white" opacity="0.9"/>
+                                <rect x="16.5" y="15.5" width="3.5" height="3.5" rx="1" fill="white" opacity="0.9"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold">MediComp</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Making healthcare accessible and affordable through transparent price search and verified pharmacy partnerships.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="main.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        
+                        <li><a href="dashboard.html" class="text-gray-400 hover:text-white transition-colors">My Orders</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="mailto:info@medicomp.com" class="text-gray-400 hover:text-white transition-colors">info@medicomp.com</a></li>
+                        <li class="text-gray-400">+91-1800-MEDICOMP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 MediComp Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/order-tracking.js"></script>
+    <script>
+        // Initialize icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

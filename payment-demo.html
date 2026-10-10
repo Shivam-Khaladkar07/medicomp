@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Demo - MediComp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Page Header -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Stripe Payment Demo</h1>
+            <p class="text-gray-600">Test the payment integration with sample data</p>
+        </div>
+
+        <!-- Demo Cart -->
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Sample Order</h2>
+                
+                <!-- Sample Medicine Items -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="pill" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Paracetamol 500mg</h3>
+                                <p class="text-sm text-gray-600">Generic Medicine</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold text-gray-900">₹25.00</p>
+                            <p class="text-sm text-gray-500">Qty: 2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="pill" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900">Aspirin 75mg</h3>
+                                <p class="text-sm text-gray-600">Generic Medicine</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold text-gray-900">₹15.00</p>
+                            <p class="text-sm text-gray-500">Qty: 1</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Subtotal</span>
+                            <span class="font-medium">₹65.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Delivery Fee</span>
+                            <span class="font-medium">₹50.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Tax (18% GST)</span>
+                            <span class="font-medium">₹11.70</span>
+                        </div>
+                        <hr class="border-gray-200">
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total</span>
+                            <span class="text-blue-600">₹126.70</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Payment Information</h3>
+                
+                <!-- Stripe Payment Form -->
+                <form id="payment-form" class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Card Information</label>
+                        <div id="card-element" class="p-3 border border-gray-300 rounded-lg bg-white">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" class="text-red-600 text-sm mt-1"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Name on Card</label>
+                            <input type="text" id="cardholder-name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="cardholder-email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="pay-button" class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="button-text">Pay ₹126.70</span>
+                        <div id="spinner" class="hidden">
+                            <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
+                        </div>
+                    </button>
+                </form>
+                
+                <!-- Test Card Information -->
+                <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <h4 class="font-medium text-yellow-800 mb-2">Test Card Numbers</h4>
+                    <div class="text-sm text-yellow-700 space-y-1">
+                        <p><strong>Visa:</strong> 4242 4242 4242 4242</p>
+                        <p><strong>Mastercard:</strong> 5555 5555 5555 4444</p>
+                        <p><strong>Declined:</strong> 4000 0000 0000 0002</p>
+                        <p>Use any future expiry date and any 3-digit CVC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script type="module">
+        import { loadComponent } from './scripts/components/loader.js';
+        import { SimplePaymentService } from './scripts/simple-payment.js';
+
+        // Load all shared components
+        await loadComponent('#navbar-container');
+        await loadComponent('#footer-container');
+
+        // Initialize Simple payment service
+        const simplePaymentService = new SimplePaymentService();
+        simplePaymentService.setupEventListeners();
+
+        // Initialize icons after components are loaded
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+

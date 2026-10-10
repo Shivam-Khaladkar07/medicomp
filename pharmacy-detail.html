@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Details - MediComp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Pharmacy Header -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16" data-id="pharmacy-header">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center gap-6">
+        <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+          <i data-lucide="building-2" class="w-12 h-12"></i>
+        </div>
+        <div>
+          <h1 id="pharmacy-name" class="text-3xl md:text-4xl font-bold mb-2">Pharmacy Name</h1>
+          <p class="text-xl opacity-90">Verified Partner Pharmacy</p>
+          <div class="flex items-center gap-4 mt-3">
+            <span id="pharmacy-rating" class="flex items-center gap-2">
+              <i data-lucide="star" class="w-5 h-5 text-yellow-300"></i>
+              4.5★
+            </span>
+            <span id="pharmacy-distance" class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+              2.1 km away
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pharmacy Details -->
+  <section class="py-16" data-id="pharmacy-details">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- About Section -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="about-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">About This Pharmacy</h2>
+            <p class="text-gray-600 mb-4">
+              This is a trusted partner pharmacy that has been serving the community with quality healthcare products and services. 
+              They maintain high standards of pharmaceutical care and offer competitive pricing on a wide range of medicines.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                <span class="text-gray-700">Licensed & Verified</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+                <span class="text-gray-700">24/7 Support</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="truck" class="w-5 h-5 text-purple-600"></i>
+                <span class="text-gray-700">Fast Delivery</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="shield-check" class="w-5 h-5 text-indigo-600"></i>
+                <span class="text-gray-700">Secure Payments</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services Section -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="services-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Services Offered</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                <i data-lucide="prescription" class="w-6 h-6 text-blue-600"></i>
+                <span class="text-gray-700">Prescription Medicines</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                <i data-lucide="pill" class="w-6 h-6 text-green-600"></i>
+                <span class="text-gray-700">Over-the-Counter</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+                <i data-lucide="heart" class="w-6 h-6 text-purple-600"></i>
+                <span class="text-gray-700">Health Supplements</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-yellow-50 rounded-lg">
+                <i data-lucide="thermometer" class="w-6 h-6 text-yellow-600"></i>
+                <span class="text-gray-700">Medical Devices</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="contact-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-blue-600"></i>
+                <span class="text-gray-700">+91 98765 43210</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-green-600"></i>
+                <span class="text-gray-700">info@pharmacy.com</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-red-600"></i>
+                <span class="text-gray-700">123 Healthcare Street, Medical District, City - 400001</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-purple-600"></i>
+                <span class="text-gray-700">Monday - Sunday: 8:00 AM - 10:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="quick-actions">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+            <div class="space-y-3">
+              <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Pharmacy
+              </button>
+              <button class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                Get Directions
+              </button>
+              <button class="w-full bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                Send Message
+              </button>
+            </div>
+          </div>
+
+          <!-- Price Information -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="price-info">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Price Information</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">Starting from:</span>
+                <span id="pharmacy-price" class="text-2xl font-bold text-green-600">₹0.00</span>
+              </div>
+              <div class="text-sm text-gray-500">
+                Prices may vary based on quantity and availability
+              </div>
+            </div>
+          </div>
+
+          <!-- Operating Hours -->
+          <div class="bg-white rounded-lg shadow-md p-6" data-id="operating-hours">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Operating Hours</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Monday - Friday</span>
+                <span class="text-gray-900">8:00 AM - 10:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Saturday</span>
+                <span class="text-gray-900">9:00 AM - 9:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Sunday</span>
+                <span class="text-gray-900">9:00 AM - 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Search -->
+  <section class="py-16 bg-gray-100" data-id="back-to-search">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Looking for Something Else?</h2>
+                      <p class="text-gray-600 mb-6">Search for more medicines and view prices across pharmacies</p>
+      <a href="main.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium inline-flex items-center gap-2">
+        <i data-lucide="search" class="w-5 h-5"></i>
+        Back to Search
+      </a>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { MediCompChatbot } from './scripts/chatbot.js';
+    import { CartService } from './scripts/cart.js';
+    
+    // Load all shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize chatbot
+    new MediCompChatbot();
+    
+    // Initialize cart service
+    new CartService();
+    
+    // Parse URL parameters and populate pharmacy details
+    function populatePharmacyDetails() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name') || 'Pharmacy Name';
+      const price = urlParams.get('price') || '0.00';
+      const distance = urlParams.get('distance') || '0.0';
+      const rating = urlParams.get('rating') || '4.5';
+      
+      // Update page elements
+      document.getElementById('pharmacy-name').textContent = name;
+      document.getElementById('pharmacy-price').textContent = `₹${price}`;
+      document.getElementById('pharmacy-distance').innerHTML = `<i data-lucide="map-pin" class="w-5 h-5"></i>${distance} km away`;
+      document.getElementById('pharmacy-rating').innerHTML = `<i data-lucide="star" class="w-5 h-5 text-yellow-300"></i>${rating}★`;
+      
+      // Update page title
+      document.title = `${name} - MediComp`;
+    }
+    
+    // Initialize page
+    populatePharmacyDetails();
+    
+    // Initialize icons after components are loaded
+    lucide.createIcons();
+  </script>
+</body>
+</html>

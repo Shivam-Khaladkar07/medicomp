@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Pharmacies - MediComp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20" data-id="hero-section">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6" data-id="hero-title">
+        Partner Pharmacies
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-id="hero-description">
+        Trusted pharmacies providing competitive prices and reliable service
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="py-8 bg-white border-b" data-id="filter-section">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="flex flex-col md:flex-row gap-4 items-center" data-id="filter-controls">
+          <div class="flex items-center gap-2">
+            <label for="location-filter" class="text-sm font-medium text-gray-700">Location:</label>
+            <select id="location-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-id="location-dropdown">
+              <option value="">All Cities</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="delhi">Delhi</option>
+              <option value="bangalore">Bangalore</option>
+              <option value="chennai">Chennai</option>
+              <option value="kolkata">Kolkata</option>
+            </select>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <label for="type-filter" class="text-sm font-medium text-gray-700">Type:</label>
+            <select id="type-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-id="type-dropdown">
+              <option value="">All Types</option>
+              <option value="online">Online Pharmacy</option>
+              <option value="retail">Retail Chain</option>
+              <option value="independent">Independent</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="text-sm text-gray-600" data-id="pharmacy-count">
+          Showing <span id="pharmacy-count-number">50</span> pharmacies
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pharmacies Grid -->
+  <section class="py-16" data-id="pharmacies-section">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="pharmacies-grid" data-id="pharmacies-grid">
+        <!-- Pharmacies will be populated here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Benefits -->
+  <section class="py-20 bg-white" data-id="benefits-section">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-id="benefits-title">
+          Why Partner With Us?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-id="benefits-description">
+          Join our network of trusted pharmacies and reach more customers
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-id="benefits-grid">
+        <div class="text-center p-6" data-id="benefit-visibility">
+          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="eye" class="w-8 h-8 text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-gray-900">Increased Visibility</h3>
+          <p class="text-gray-600">Reach thousands of potential customers searching for medications.</p>
+        </div>
+        
+        <div class="text-center p-6" data-id="benefit-competitive">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="trending-up" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-gray-900">Competitive Advantage</h3>
+          <p class="text-gray-600">Showcase your competitive prices and attract price-conscious customers.</p>
+        </div>
+        
+        <div class="text-center p-6" data-id="benefit-trust">
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="shield-check" class="w-8 h-8 text-purple-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-gray-900">Trust & Credibility</h3>
+          <p class="text-gray-600">Join our verified network and build customer trust.</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="contact.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium" data-id="partner-cta">
+          Become a Partner
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+  <div id="badge-container" data-source="components/badge.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initPharmacies } from './scripts/pharmacies.js';
+    import { MediCompChatbot } from './scripts/chatbot.js';
+    import { CartService } from './scripts/cart.js';
+    
+    // Load all shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#badge-container');
+    
+    // Initialize functionality
+    initPharmacies();
+    
+    // Initialize chatbot
+    new MediCompChatbot();
+    
+    // Initialize cart service
+    new CartService();
+    
+    // Initialize icons after components are loaded
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -6,3 +6,5 @@ node_modules/
 *.sqlite
 *.sqlite3
 .vscode/components/assets/WhatsApp Image 2025-09-25 at 11.40.56_bfd795ce.jpg
+components/assets/
+**/.vscode/
